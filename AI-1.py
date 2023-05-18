@@ -10,21 +10,21 @@ steer_pair = MoveSteering(OUTPUT_B, OUTPUT_C)
 sound = Sound()
 my_string = 'AI'.upper() #upper() converts lowercase to upper
 wf = 0.77 # wheel factor. 
-scl = 3 # Scale. scl=3 gives 3cm per grid unit. Use scl values between 3 and 5.
+scl = 5 # Scale. scl=3 gives 3cm per grid unit. Use scl values between 3 and 5.
 sp = 20 # speed of steer_pair. Use values between 15 and 30.
-sep = 10.5 # effective wheel separation in centimeters.
+sep = 11.2 # effective wheel separation in centimeters.
 degs_per_cm = 26.84 * wf # degrees of wheel turn per cm advanced.
-degs_per_robot_deg = 2.46 * wf # angle wheels turn when robot turns one degree on the spot
+degs_per_robot_deg = 3.35 * wf # angle wheels turn when robot turns one degree on the spot
 medium_motor.position = 0 # needed to protect against a bug.
 # 'direction' is the direction from the current node to the next node, measured cw from 'north'.
 heading = 90 # 'heading' is the direction the robot is facing, measured clockwise from 'north'. 
 
-sequence={'A':'GiMbo','I':'AcBnMo'}
+sequence={'A':'MBOgIm','I':'oMaCbNm', 'B':'MACOMACOMACO'}
 
 
 node={'a':(0,4),'b':(1,4),'c':(2,4),'d':(0,3),'e':(1,3),'f':(2,3),'g':(0,2)}
 node.update({'h':(1,2),'i':(2,2),'j':(0,1),'k':(1,1)})
-node.update({'l':(2,1),'m':(0,0),'n':(1,0),'o':(2,0),'q':(2.6,0)}) # Note the value of 'q'
+node.update({'l':(2,1),'m':(0,0),'n':(1,0),'o':(2,0),'q':(-4,0)}) # Note the value of 'q'
 
 def pu():
     if abs(medium_motor.position) > 10: # if pen is not already up
@@ -44,6 +44,7 @@ def get_dist_and_dir(letter):
     return distance, direction # as a TUPLE
 
 def move_straight(letter):
+    print(heading)
     global current_node, heading
     if letter.islower():  # lower the pen if necessary
         pd()
@@ -68,5 +69,5 @@ for char in my_string:
     sound.speak(char)
     # set current_node to equal [0,0] (node M) each time we start writing a character
     current_node=[0,0]  
-    for letter in (sequence[char]+'Q'): # add Q to put space between the characters
+    for letter in (sequence[char]+'q'): # add Q to put space between the characters
         move_straight(letter)

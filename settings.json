@@ -1,0 +1,28 @@
+{
+    "launch": {
+        "version": "0.2.0",
+        "configurations": [{
+            "name": "Download and Run",
+            "type": "ev3devBrowser",
+            "request": "launch",
+            "program": "/home/robot/${workspaceRootFolderName}/${relativeFile}"
+        },
+        {
+            "name": "Python: Current File (Integrated Terminal)",
+            "type": "python",
+            "request": "launch",
+            "program": "${file}",
+            "console": "integratedTerminal"
+        }]
+    },
+    "git.ignoreMissingGitWarning": false,
+    "ev3devBrowser.confirmDelete": false,
+    "editor.autoClosingBrackets": "never",
+    "editor.autoClosingQuotes": "never",
+    "files.eol": "\n",
+    "ev3devBrowser.download.exclude": "{**/.*,LICENSE,README.md}",
+    "editor.fontSize": 15,
+    "debug.openDebug": "neverOpen",
+    "terminal.integrated.shell.windows": "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
+    "workbench.activityBar.visible": true,
+}
