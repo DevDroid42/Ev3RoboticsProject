@@ -8,7 +8,7 @@ from time import sleep
 medium_motor = MediumMotor()
 steer_pair = MoveSteering(OUTPUT_B, OUTPUT_C)
 sound = Sound()
-my_string = 'AI'.upper() #upper() converts lowercase to upper
+my_string = 'B'.upper() #upper() converts lowercase to upper
 wf = 0.77 # wheel factor. 
 scl = 5 # Scale. scl=3 gives 3cm per grid unit. Use scl values between 3 and 5.
 sp = 20 # speed of steer_pair. Use values between 15 and 30.
