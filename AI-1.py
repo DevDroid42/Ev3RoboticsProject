@@ -8,9 +8,9 @@ from time import sleep
 medium_motor = MediumMotor()
 steer_pair = MoveSteering(OUTPUT_B, OUTPUT_C)
 sound = Sound()
-my_string = 'LANE'.upper() #upper() converts lowercase to upper
+my_string = 'EFHLKMN'.upper() #upper() converts lowercase to upper
 wf = 0.77 # wheel factor. 
-scl = 5 # Scale. scl=3 gives 3cm per grid unit. Use scl values between 3 and 5.
+scl = 3 # Scale. scl=3 gives 3cm per grid unit. Use scl values between 3 and 5.
 sp = 20 # speed of steer_pair. Use values between 15 and 30.
 sep = 11.2 # effective wheel separation in centimeters.
 degs_per_cm = 26.84 * wf # degrees of wheel turn per cm advanced.
@@ -19,8 +19,8 @@ medium_motor.position = 0 # needed to protect against a bug.
 # 'direction' is the direction from the current node to the next node, measured cw from 'north'.
 heading = 90 # 'heading' is the direction the robot is facing, measured clockwise from 'north'. 
 
-sequence={'A':'MBOgIm','I':'oMaCbNm', 'E':'ocAcIGiOM', 'F':'MAcaGi', 'H': 'MaGiCO',
-           'L': 'OcOM', 'K': 'MaGcGO', 'M': 'MGNIO', 'N': 'oOCMA', 'B': 'MACOMACOMACO'}
+sequence={'A':'MBOgIm','I':'oMaCbNm', 'E':'cAcIGiOM', 'F':'oCAiG', 'H': 'oCaMiG',
+           'L': 'cOM', 'K': 'oCaIM', 'M': 'oCNAM', 'N': 'oOCMA', 'B': 'MACOMACOMACO'}
 
 
 node={'a':(0,4),'b':(1,4),'c':(2,4),'d':(0,3),'e':(1,3),'f':(2,3),'g':(0,2)}
@@ -72,3 +72,5 @@ for char in my_string:
     current_node=[0,0]  
     for letter in (sequence[char]+'q'): # add Q to put space between the characters
         move_straight(letter)
+
+pd()
